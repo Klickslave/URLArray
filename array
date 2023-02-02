@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script>
+      function updateFrame() {
+        // Liste mit URL-Adressen
+        var urls = ['url1.html', 'url2.html', 'url3.html', ...];
+        // Index für aktuelle URL
+        var current = 0;
+
+        // Funktion zur Aktualisierung des Frame-Inhalts
+        function update() {
+          // Aktualisiere den Inhalt des ersten Frames
+          document.getElementById("frame1").src = urls[current];
+          // Aktualisiere den Inhalt des zweiten Frames
+          document.getElementById("frame2").src = urls[current];
+          // Inkrementiere den Index für die nächste URL
+          current = (current + 1) % urls.length;
+        }
+
+        // Rufe die Funktion "update" alle 5000ms auf
+        setInterval(update, 5000);
+      }
+    </script>
+  </head>
+  <body onload="updateFrame()">
+    <iframe id="frame1" width="500" height="300"></iframe>
+    <iframe id="frame2" width="500" height="300"></iframe>
+  </body>
+</html>
